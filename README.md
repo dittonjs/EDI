@@ -2,7 +2,7 @@
 
 ## Description
 
-**EDI** is an Enhanced Desktop Assistant module for node.js using api.ai.
+**EDI** is an Enhanced Desktop Intelligence module for node.js using api.ai.
 
 **EDI** will listen for your commands and and send wav recording to api.ai which return with an and speech that you can use to help your app make decisions.
 

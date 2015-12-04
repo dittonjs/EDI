@@ -1,7 +1,7 @@
 var secrets = require("./secrets")
 var EDI = require('./');
 
-var edi = new EDI({key: secrets.api_key, subscriptionKey: secrets.subscription_key});
+var edi = new EDI({key: secrets.api_key, subscriptionKey: secrets.subscription_key}, {threshold: .1});
 
 edi.on('speechStart', function() {
   console.log('onSpeechStart');
