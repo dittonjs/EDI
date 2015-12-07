@@ -1,7 +1,7 @@
 var secrets = require("./secrets")
 var EDI = require('./');
 
-var edi = new EDI({key: secrets.api_key, subscriptionKey: secrets.subscription_key}, {threshold: .1});
+var edi = new EDI({key: secrets.api_key, subscriptionKey: secrets.subscription_key}, {threshold: 1});
 
 edi.on('speechStart', function() {
   console.log('onSpeechStart');
@@ -26,7 +26,12 @@ edi.on('error', function(err) {
 });
 
 edi.on('action', function(action){
+  console.log("ACTION", action)
   // every voice response emits an action. Pass these into your app to handle them.
 });
-
-edi.recordVoice();
+console.log(process.argv);
+if(process.argv.length && process.argv[2] == "quiet"){
+  edi.startQuietMode();
+} else {
+  edi.recordVoice();
+}
